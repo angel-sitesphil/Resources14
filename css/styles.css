@@ -1,0 +1,124 @@
+/* Week 12 foundation model. Layout lessons follow in Week 13. */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #1f2937;
+  background-color: #ffffff;
+}
+header, main, footer {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 16px;
+}
+h1, h2, h3 { line-height: 1.2; }
+h1 { color: #17365d; }
+h2 { color: #17365d; margin-top: 0; }
+.intro { font-weight: bold; }
+nav a { display: inline-block; margin-right: 12px; }
+a { color: #174ea6; text-decoration: underline; }
+a:hover { text-decoration-thickness: 3px; }
+a:focus-visible, button:focus-visible,
+input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid #174ea6;
+  outline-offset: 3px;
+}
+section { margin-bottom: 24px; padding: 16px; }
+.tour-card {
+  margin-bottom: 16px;
+  padding: 16px;
+  border: 2px solid #6b7280;
+  background-color: #f3f4f6;
+}
+#contact { background-color: #f3f4f6; }
+figure { margin: 0 0 16px; }
+img { max-width: 100%; height: auto; }
+table { border-collapse: collapse; }
+th, td { border: 1px solid #6b7280; padding: 8px; text-align: left; }
+caption { text-align: left; font-weight: bold; }
+label { font-weight: bold; }
+input, select, textarea, button { font: inherit; }
+input[type="text"], input[type="email"], select, textarea {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  padding: 8px;
+  border: 1px solid #6b7280;
+}
+fieldset { max-width: 480px; margin: 0 0 16px; padding: 12px; }
+button {
+  padding: 8px 16px;
+  border: 2px solid #17365d;
+  background-color: #17365d;
+  color: #ffffff;
+}
+footer { border-top: 1px solid #6b7280; }
+
+/* Week 13 layout additions. Keep the Week 12 foundation rules above. */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+nav a { margin-right: 0; }
+.tour-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.tour-card {
+  position: relative;
+  min-width: 0;
+  margin-bottom: 0;
+  padding-top: 48px;
+}
+.tour-label {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 2px 8px;
+  background: #17365d;
+  color: #ffffff;
+}
+.contact-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+.contact-layout > * { min-width: 0; }
+.enquiry-note { padding: 16px; border: 1px solid #6b7280; }
+
+/* Week 14 narrow-screen defaults override Week 13 columns. */
+.tour-grid, .contact-layout {
+  grid-template-columns: minmax(0, 1fr);
+}
+fieldset { min-inline-size: 0; }
+p, a { overflow-wrap: anywhere; }
+.tour-label { position: static; display: inline-block; }
+.tour-card { padding-top: 16px; }
+@media (min-width: 48rem) {
+  .tour-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .contact-layout {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  }
+}
+/* Week 14 keyboard access additions. */
+.skip-link {
+  position: absolute;
+  top: 0; left: 0;
+  transform: translateY(-150%);
+  padding: 12px;
+  background: #ffffff;
+  color: #17365d;
+  z-index: 10;
+}
+.skip-link:focus { transform: translateY(0); }
+main:focus { outline: 3px solid #174ea6; }
+nav a { padding: 8px 4px; }
